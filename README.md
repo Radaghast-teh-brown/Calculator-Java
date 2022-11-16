@@ -5,9 +5,10 @@
  
  - Eclipse
  - GuitHub
+ - YouTube videos
  
  ## _1 - Creating the interface_
- 
+ A graphic user interface (GUI) is a way to communicate with the user of the aplication in a easiar way. Tha java library swing has different resouces to make GUI. 
  
  ## _2 - Functions_
  
