@@ -12,6 +12,6 @@
  ## _2 - Functions_
  
  
- ## _3 - 
+ ## _3 - Finishing the project_
  
  
