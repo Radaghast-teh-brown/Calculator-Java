@@ -9,6 +9,7 @@
  
  ## _1 - Creating the interface_
  A graphic user interface (GUI) is a way to communicate with the user of the aplication in a easiar way. Tha *java library swing* has different resouces to make GUI. 
+ The JFrame, JPanel and JButton are the basics tools to create our graphic interface. The frame adds the panel and we put each button inside the panel. 
  
  ## _2 - Functions_
  The calculador does  this operations:
