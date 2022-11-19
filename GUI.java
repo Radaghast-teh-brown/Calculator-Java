@@ -18,6 +18,10 @@ public class GUI {
 		JButton number8 = new JButton("8");
 		JButton number9 = new JButton("9");
 		JButton number0 = new JButton("0");
+		JButton addition = new JButton("+");
+		JButton subtraction = new JButton("-");
+		JButton multiplication = new JButton("x");
+		JButton division = new JButton("/");
 		JLabel label = new JLabel("Numbers of clicks");
 		
 		panel.setSize(500,500);
@@ -33,7 +37,10 @@ public class GUI {
 		panel.add(number9);
 		panel.add(number0);
 		panel.add(label);
-		
+		panel.add(addition);
+		panel.add(subtraction);
+		panel.add(multiplication);
+		panel.add(division);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600,600);
 		frame.setTitle("Calculator");
