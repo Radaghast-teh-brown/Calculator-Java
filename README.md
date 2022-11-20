@@ -19,9 +19,13 @@
  - division
  - percentage
  - squrare root
+
  
+ ## _3 - Graphic User Interface
  
+ This is how my calculator looks like.
  
- ## _3 - Finishing the project_
+ ![image](https://user-images.githubusercontent.com/84158231/202876878-f874ab43-3479-4b4e-b301-9361a76b97f4.png)
+
  
  
