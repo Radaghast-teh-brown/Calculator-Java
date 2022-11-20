@@ -19,9 +19,10 @@
  - division
  - percentage
  - squrare root
+
  
+ ## _3 - Graphic User Interface
  
- 
- ## _3 - Finishing the project_
+ This is how my calculator looks like.
  
  
