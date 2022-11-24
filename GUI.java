@@ -8,12 +8,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GUI  implements ActionListener{
+public class GUI implements ActionListener{
 	JFrame frame = new JFrame();
     JPanel panel = new JPanel();
     JLabel output = new JLabel("ok");
     JTextField answer = new JTextField();
-    String resp = "00";
+    String resp = "";
     String name;
     
     JButton number1 = new JButton("1");
@@ -129,72 +129,17 @@ public class GUI  implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent e) {
-    	if(e.getSource() == "") {
-    		
-    	}else if(e.getSource() == comma) {
-    		name = answer.getText();
-    		resp += name;
-    	}
-    	else if(e.getSource() == clear) {
-    		name = answer.getText();
-    		resp += name;
-    	}
-    	else if(e.getSource() == number0) {
-    		name = answer.getText();
-    		resp += name;
-    	}
-    	else if(e.getSource() == division) {
-    		name = answer.getText();
-    		resp += name;
-    	}
-    	else if(e.getSource() == square_root) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == percentage) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == power) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == multiplication) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == subtraction) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == addition) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number1) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number2) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number3) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number4) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number5) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number6) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number7) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number8) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == number9) {
-    		name = answer.getText();
-    		resp += name;
-    	}else if(e.getSource() == equal) {
+    	String s = e.getActionCommand();
+    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%',','};
+    	
+    	if(new String(terms).indexOf(s.charAt(0)) != -1) {
+    		resp += s;
+    		System.out.println(resp);
+    	}else if(s == "\u221A") {
+    		resp += "sqrt";
     		System.out.println(resp);
     	}
+    		
     	
     }
     
