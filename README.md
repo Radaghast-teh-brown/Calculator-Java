@@ -25,7 +25,7 @@
  When we use GUI we need to use java.awt and ActionListener to do certain things to interact with the buttons and other tools. 
 
  
- ## _3 - Graphic User Interface
+ ## _4 - Graphic User Interface_
  
  This is how my calculator looks like.
  
