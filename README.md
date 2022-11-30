@@ -25,11 +25,28 @@
  When we use GUI we need to use java.awt and ActionListener to do certain things to interact with the buttons and other tools. 
 
  
- ## _3 - Graphic User Interface
+ ## _4 - Graphic User Interface_
  
  This is how my calculator looks like.
  
- ![image](https://user-images.githubusercontent.com/84158231/202876878-f874ab43-3479-4b4e-b301-9361a76b97f4.png)
+![image](https://user-images.githubusercontent.com/84158231/203869467-6a729a28-1307-49ab-a285-ffd8ea468a3a.png)
+
+## _5 - Regular Expression_
+
+When the user types the numbers they are stored in a string. I need to use regular expression to split this string in a array because de characters as + or sqrt does not have a clear meaning for my computer. The method was created like this:
+
+```
+public void evaluateString(String string) {
+    	double result = 0;
+    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%','.'};
+    	String[] partial = string.split("['+','-','x','/','^','%']");
+    	for(int i = 0 ; i < partial.length; i++) {
+    		System.out.println(partial[i]);
+    	}
+    }
+
+```
+
 
  
  
