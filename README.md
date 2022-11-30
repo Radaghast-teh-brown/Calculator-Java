@@ -31,6 +31,22 @@
  
 ![image](https://user-images.githubusercontent.com/84158231/203869467-6a729a28-1307-49ab-a285-ffd8ea468a3a.png)
 
+## _5 - Regular Expression_
+
+When the user types the numbers they are stored in a string. I need to use regular expression to split this string in a array because de characters as + or sqrt does not have a clear meaning for my computer. The method was created like this:
+
+```
+public void evaluateString(String string) {
+    	double result = 0;
+    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%','.'};
+    	String[] partial = string.split("['+','-','x','/','^','%']");
+    	for(int i = 0 ; i < partial.length; i++) {
+    		System.out.println(partial[i]);
+    	}
+    }
+
+```
+
 
  
  
