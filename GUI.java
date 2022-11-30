@@ -1,6 +1,8 @@
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.event.*;
+import java.beans.Expression;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,10 +13,11 @@ import javax.swing.JTextField;
 public class GUI implements ActionListener{
 	JFrame frame = new JFrame();
     JPanel panel = new JPanel();
-    JLabel output = new JLabel("ok");
-    JTextField answer = new JTextField();
+    JTextField screen = new JTextField();
     String resp = "";
     String name;
+    
+    Font font = new Font("SansSerif", Font.BOLD, 20);
     
     JButton number1 = new JButton("1");
     JButton number2 = new JButton("2");
@@ -33,7 +36,7 @@ public class GUI implements ActionListener{
     JButton division = new JButton("/");
     JButton equal = new JButton("=");
     JButton square_root = new JButton("\u221A");
-    JButton comma = new JButton(",");
+    JButton dot = new JButton(".");
     JButton percentage = new JButton("%");
     JButton clear = new JButton("CE");
     JButton power = new JButton("^");
@@ -42,7 +45,7 @@ public class GUI implements ActionListener{
    
         panel.setLayout(null);
         
-        output.setBounds(	15,	5,   100,50);
+        screen.setBounds(	15,	35,  215,50);
         number1.setBounds(	15, 155, 50, 50);
         number2.setBounds(	70, 155, 50, 50);
         number3.setBounds(	125,155, 50, 50);
@@ -64,12 +67,12 @@ public class GUI implements ActionListener{
         power.setBounds(			125, 100,  50, 50);
         
         equal.setBounds(			180, 320, 50, 50);
-        comma.setBounds(			125, 320, 50, 50);
+        dot.setBounds(			125, 320, 50, 50);
         clear.setBounds(			15,  320, 50, 50);
         number0.setBounds(			70,  320, 50, 50);
         
         equal.addActionListener(this);
-        comma.addActionListener(this);
+        dot.addActionListener(this);
         clear.addActionListener(this);
         number0.addActionListener(this);
         division.addActionListener(this);
@@ -91,7 +94,6 @@ public class GUI implements ActionListener{
         
    
         frame.add(panel);
-        panel.add(output);
         panel.add(number1);
         panel.add(number2);
         panel.add(number3);
@@ -109,11 +111,12 @@ public class GUI implements ActionListener{
         panel.add(division);
         
         panel.add(equal);
-        panel.add(comma);
+        panel.add(dot);
         panel.add(square_root);
         panel.add(percentage);
         panel.add(clear);
         panel.add(power);
+        panel.add(screen);
         
    
         
@@ -125,22 +128,43 @@ public class GUI implements ActionListener{
         frame.setTitle("Calculator");
         frame.setVisible(true);
         frame.setResizable(false);
+        screen.setEditable(false);
+        screen.setFont(font);
+        
+        
         
     }
     
     public void actionPerformed(ActionEvent e) {
     	String s = e.getActionCommand();
-    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%',','};
+    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%','.'};
     	
     	if(new String(terms).indexOf(s.charAt(0)) != -1) {
     		resp += s;
-    		System.out.println(resp);
-    	}else if(s == "\u221A") {
-    		resp += "sqrt";
-    		System.out.println(resp);
-    	}
+    		screen.setText(resp);
     		
+    	}else if(s == "\u221A") {
+    		resp += "\u221A";
+    		screen.setText(resp);
+
+    	}else if(s == "CE") {
+    		resp = "";
+    		screen.setText(resp);
+    		
+    	}else if(s == "=") {
+    		evaluateString(resp);
+    	}
+    }
+    
+    public void evaluateString(String string) {
+    	double result = 0;
+    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%','.'};
+    	String[] partial = string.split("((?=:|\\-|\\/|\\%|\\^|\\+|x)|(?<=:|\\-|\\/|\\%|\\^|\\+|x))");
+    	for(int i = 0 ; i < partial.length; i++) {
+    		System.out.println(partial[i]);
+    	}
     	
+    		
     }
     
     
