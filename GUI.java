@@ -152,24 +152,78 @@ public class GUI implements ActionListener{
     		screen.setText(resp);
     		
     	}else if(s == "=") {
-    		evaluateString(resp);
+    		String result = evaluateString(resp);
+    		System.out.print("Valor: " + result);
+    		screen.setText(result);
+    		resp = "";
+    			
     	}
     }
     
-    public void evaluateString(String string) {
-    	double result = 0;
-    	char [] terms = {'1','2','3','4','5','6', '7','8','9','0','+','-','x','/','^','%','.'};
+    public String evaluateString(String string) {
+    	double temp = 0;
+    	double part = 0;
+    	String result = "";
+    	char [] terms = {'+','-','x','/','^','%','.'};
     	String[] partial = string.split("((?=:|\\-|\\/|\\%|\\^|\\+|x)|(?<=:|\\-|\\/|\\%|\\^|\\+|x))");
     	for(int i = 0 ; i < partial.length; i++) {
     		System.out.println(partial[i]);
+    		try {
+    			
+    			if(new String(terms).indexOf(partial[i].charAt(0)) == -1) {
+    				double term = Double.parseDouble(partial[i]);
+    				temp = term;
+    			}
+    			if( partial[i].equals("+")) {
+        				double term = Double.parseDouble(partial[i+1]);
+        				temp += term;
+        				part += temp;
+        				System.out.println("A" +partial[i+1]);
+        				System.out.println(temp);
+        		}if( partial[i].equals("-")) {
+        				double term = Double.parseDouble(partial[i+1]);
+        				temp -= term;
+        				part += temp;
+        				System.out.println("A" +partial[i+1]);
+        				System.out.println(temp);
+        		}
+        		if( partial[i].equals("x")) {
+        				double term = Double.parseDouble(partial[i+1]);
+        				temp *= term;
+        				part += temp;
+        		}
+        		if( partial[i].equals("/")) {
+        				double term = Double.parseDouble(partial[i+1]);
+        				temp /= term;
+        				part += temp;
+        		}
+        		if( partial[i].equals("^")) {
+        				int term = Integer.parseInt(partial[i]);
+        				for(int n = 0; n < term; n++) {
+        					temp *= temp;
+        				}
+        				part += temp;
+        		}
+    				
+    			
+    				
+    			
+    			
+    			result = String.valueOf(part);
+    			
+    			
+    		}catch(Exception e){
+    			result = "ERROR";
+    			
+    			break;
+    		}
     	}
-    	
+		return result;
+    
     		
     }
+  
     
     
     
-
-	
-
 }
